@@ -1,0 +1,23 @@
+HOW TO UPLOAD FILES TO GITHUB USING GIT:
+
+1) Access repo folder, and run:
+git clone git@github.com:USER-NAME/REPOSITORY-NAME.git
+git remote -v (to check the URL of the repository)
+--> This will copy the GitHub repo to the local folder.
+
+2) Place the data you want in the folder; then, run:
+git add filename.extension (to add file to Git's staging area)
+or; git add . (to add all files from folder to Git's staging area)
+git commit -m "description" (to commit files and add a Git's log)
+--> Commit recquires descritpion (it should be concise and informative).
+
+3) Use these commands to check status and logs:
+git stats (to check status of each stage)
+git log (to check the logs)
+
+4) Send the files to GitHub:
+git push
+or; git push origin main
+
+Hint: Set VSCode as default commit message editor:
+$ git config --global core.editor "code --wait"

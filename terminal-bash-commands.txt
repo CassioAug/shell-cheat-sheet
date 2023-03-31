@@ -1,0 +1,129 @@
+SHELL / BASH COMMANDS
+
+General Syntax:
+Ie.: $ ls -F /
+
+$	=	prompt
+ls	=	command
+-F	=	option
+/	=	argument
+
+---
+
+Paths:
+
+Absolute	        the path description from the root; ie.: /home/user/Desktop/
+Relative	        the path description from the current directory; ie.: Desktop/
+/		            root directory
+~		            home directory (same as /home/user)
+
+---
+
+Wildcards:
+
+*		            represents zero or more other characters
+ie.1: *.txt	        every .txt file on the specified path
+ie.2: p*.txt	    every .txt file with names starting with p
+
+?			        represents excactly one character
+ie.1: ?ethane.txt	could represent methane.txt or lethane.txt (but not ethane.txt)
+
+---
+
+File and folder management:
+
+command --help      show more details about the specified command
+
+pwd		            print working directory
+
+cd		            move current working directory to home
+cd .		        move to current directory
+cd ..		        move to parent (back) directory
+cd -		        move to previous directory
+cd /"path"/	        move to the selected (absolute) path directory
+cd ~		        move to current user home directory; ie.: /home/user/
+cd /		        move to root
+
+ls		            list content from directory
+ls -F		        classify the output with a marker indicating what it is
+ls -r		        list content with reversed order
+ls -s		        list content with size information
+ls -S		        list content sorted by size
+
+mkdir "name"		create a new directory
+mkdir -p ../"name"	create a new directory in the parent folder
+
+rm file 	        remove file permanently
+rm -i file	        ask if you really want to remove file (y = yes; n = no)
+gio trash           move file to trash
+gio trash --empty   empty trash
+
+mv dir1/fileA dir2/fileB    move file to a different path
+mv dir/file dir/file        rename file or directory
+mv -i                       ask confirmation if file will be overwritten
+mv path/file .	    		move file from different directory to current directory
+
+cp file path	    copy file or directory to the specified path
+
+---
+
+Reading / editing commands:
+
+wc		            count content from file (lines, words and characters)
+wc -l		        count file lines
+wc -w		        count file words
+wc -m		        count file characters
+
+command > file		redirect command outup to file
+command >> file		append (add) command output to file
+
+cat file	        print content from a file
+
+sort		        sort content by alphanumerical value
+sort -n		        sort content by numerical value
+
+head -n X	        print first X lines of a file content
+tail -n X	        print last X lines of a file content
+
+cut -d,	-f X	    cut out and print the data from X sections delimited by ","
+
+uniq 	        	filter out adjacent matching lines in a file
+
+---
+
+Installing or removing apps (packages):
+
+APT: (pre-installed with Ubuntu)
+apt install package-name		    install package from apt repository
+apt remove package-name		        remove package installed with apt
+apt purge package-name	            completely remove package installed with apt
+apt upgrade package-name		    update apt package (if none are specified, update all)
+apt update				            update list of available packages
+apt --help				            show more information
+(Hint: Synaptic Packet Manager is a good apt GUI manager)
+(to install, run: sudo apt install synaptic)
+
+SNAP: (pre-installed with Ubuntu)
+snap install package-name		    install package from snap repository
+snap remove package-name		    remove package installed from snap
+snap remove --purge package-name	completely remove package installed from snap
+snap refresh package-name		    update snap package (if none are specified, update all)
+snap refresh --list			        list all packages with available updates
+snap --help				            show more information
+
+FLATPAK: (to install, run: "sudo apt install flatpak")
+flatpak install <package-name>		install package from flatpak repository
+flatpak uninstall <package-name>	remove package installed from flatpak
+flatpak uninstall --delete-data		completely remove files from uninstalled packages
+flatpak update <package-name>		update flatpak package (if none are specified, update all)
+flatpak list				        list all flatpak packages installed
+flatpak --help				        show more information
+
+---
+
+Other commands:
+sudo command                        give super user privileges / root access
+apt-mark showmanual                 list manually installed package names
+
+Reset app drawer:
+gsettings reset org.gnome.shell app-picker-layout       
